@@ -417,7 +417,7 @@ func (r *Response) error(err any) {
 		r.err = nil
 	}
 
-	if r.server.Config().GetBool("app.debug") && r.IsEmpty() && !r.Hijacked() {
+	if r.IsEmpty() && !r.Hijacked() {
 		status := http.StatusInternalServerError
 		if r.status != 0 {
 			status = r.status
