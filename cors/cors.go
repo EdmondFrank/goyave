@@ -123,5 +123,6 @@ func (o *Options) HandlePreflight(headers http.Header, requestHeaders http.Heade
 func (o *Options) validateOrigin(requestHeaders http.Header) bool {
 	return len(o.AllowedOrigins) == 0 ||
 		o.AllowedOrigins[0] == "*" ||
+		o.AllowedOrigins[0] == "Origin" ||
 		slices.Contains(o.AllowedOrigins, requestHeaders.Get("Origin"))
 }
